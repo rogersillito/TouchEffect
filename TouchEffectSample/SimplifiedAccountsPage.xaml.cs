@@ -32,7 +32,7 @@ namespace TouchEffectSample
             {
                 if (this._isHandlingTap)
                 {
-                    //return;
+                    return;
                 }
                 this._isHandlingTap = true;
                 Application.Current.MainPage.DisplayAlert("ChildItemCommand", "Child fired first: " + number, "Cancel");
@@ -44,7 +44,7 @@ namespace TouchEffectSample
             {
                 if (this._isHandlingTap)
                 {
-                    //return;
+                    return;
                 }
                 this._isHandlingTap = true;
                 Application.Current.MainPage.DisplayAlert("ParentItemCommand", "Parent fired first", "Cancel");
