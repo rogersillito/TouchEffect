@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
+             mc:Ignorable=""
+             d:BindingContext="{Binding .}"
+             x:Name="ThisPage"
+             x:Class="TouchEffectSample.SimplifiedAccountsPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+
+            <ScrollView Orientation="Vertical" VerticalOptions="Center">
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Padding="20"
+                    Spacing="10"
+                    Orientation="Vertical"
+                    BindableLayout.ItemsSource="{Binding Numbers}">
+                      <BindableLayout.ItemTemplate>
+                          <DataTemplate>
+
+                <!--
+                                Tapped="BoxTapped"
+                        touch:TouchEff.NativeAnimation="True"
+                        touch:TouchEff.NativeAnimationColor="Red"
+                -->
+                              <Frame 
+                                    Padding="0"
+                                    HasShadow="False"
+                                    touch:TouchEff.Command="{Binding Path=ParentItemCommand, Source={x:Reference ThisPage}}"
+                                    touch:TouchEff.ShouldMakeChildrenInputTransparent="False" 
+                                    touch:TouchEff.NativeAnimation="True">
+                                    <StackLayout>
+                                        <BoxView
+                                        touch:TouchEff.Command="{Binding Path=ChildItemCommand, Source={x:Reference ThisPage}}"
+                                        touch:TouchEff.CommandParameter="{Binding .}"
+                                        WidthRequest="300"
+                                        HeightRequest="80"
+                                        BackgroundColor="Aquamarine">
+                                        </BoxView>
+                                        <Label
+                                            MaxLines="1"
+                                            Padding="5"
+                                            TextColor="Yellow"
+                                            FontAttributes="Bold"
+                                            Text="{Binding .}"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="End"
+                                            Opacity="0.6"
+                                            BackgroundColor="Black"/>
+                                    </StackLayout>
+                              </Frame>
+
+                      </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

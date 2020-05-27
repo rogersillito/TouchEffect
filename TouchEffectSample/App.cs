@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 using TouchEffect;
 using TouchEffectSample.Issues;
@@ -51,6 +51,11 @@ namespace TouchEffectSample
                             {
                                 Text = "(Native animation sample)",
                                 Command = new Command(() => MainPage.Navigation.PushAsync(new NativeAnimationPage()))
+                            },
+                            new Button
+                            {
+                                Text = "(Simplifed version of accounts page)",
+                                Command = new Command(() => MainPage.Navigation.PushAsync(new SimplifiedAccountsPage()))
                             }
                         }
 					}
